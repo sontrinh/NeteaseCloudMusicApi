@@ -96,6 +96,9 @@ const createRequest = (method, url, data, options) => {
       data = encrypt.eapi(options.url, data)
       url = url.replace(/\w*api/, 'eapi')
     }
+    
+    // force http to use UnblockNeteaseMusic
+    url = url.replace(/https:/, 'http:')
 
     const answer = { status: 500, body: {}, cookie: [] }
     const settings = {
